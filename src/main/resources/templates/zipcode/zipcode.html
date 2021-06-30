@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
@@ -68,32 +67,20 @@
 
 	<!-- コンテンツ -->
 	<div class="container">
-		<div class="row">
-
-			<div class="col-sm-6">
-				<div class="content-box">
-					<h2>住所検索 - 郵便番号</h2>
-					<form method="post" th:action="@{/zip}">
-						<div class="input-group">
-							<input type="number" class="form-control" name="zipcode"
-								placeholder="郵便番号 : XXXXXXX"> <span
-								class="input-group-btn">
-								<button type="submit" class="btn btn-success">検索</button>
-							</span>
-						</div>
-					</form>
-				</div>
-			</div>
-
-			<div class="col-sm-6">
-				<div class="content-box">
-					<h2>札幌市の天気予報</h2>
-					<form method="post" th:action="@{/weather}">
-						<button type="submit" id="weather" class="btn btn-success">検索</button>
-					</form>
-				</div>
-			</div>
-
+		<div class="ontent-box">
+			<h1>住所検索画面</h1>
+			<h2>郵便番号</h2>
+			<h3>検索結果</h3>
+			<!-- 基本１件だが、APIの構造に従い繰り返し構文とする -->
+			<ul th:each = "result : ${zipCodeEntity.results}" th:object = "${result}">
+				<li><span th:text = "*{zipcode}"></span></li>
+				<li><span th:text = "*{address1}"></span></li>
+				<li><span th:text = "*{address2}"></span></li>
+				<li><span th:text = "*{address3}"></span></li>
+				<li><span th:text = "*{kana1}"></span></li>
+				<li><span th:text = "*{kana2}"></span></li>
+				<li><span th:text = "*{kana3}"></span></li>
+			</ul>
 		</div>
 	</div>
 
