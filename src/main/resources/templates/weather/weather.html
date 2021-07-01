@@ -71,7 +71,7 @@
 			<h1>札幌の予報画面</h1>
 			<p>詳細</p>
 			<!-- 基本１件だが、APIの構造に従い繰り返し構文とする -->
-			<ul th:each = "forcast : ${weatherEntity.forcastss}" th:object = "${forcast}">
+			<ul th:each = "forecast : ${weatherEntity.forecasts}" th:object = "${forecast}">
 				<li><span th:text = "*{dateLabel}"></span></li>
 				<li><span th:text = "*{telop}"></span></li>
 			</ul>

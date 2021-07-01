@@ -1,4 +1,4 @@
-package jp.ac.hcs.s2a227.weather;
+package jp.ac.hcs.s3a227.weather;
 
 import java.util.ArrayList;
 import java.util.List;

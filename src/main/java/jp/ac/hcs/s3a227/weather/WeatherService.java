@@ -1,4 +1,4 @@
-package jp.ac.hcs.s2a227.weather;
+package jp.ac.hcs.s3a227.weather;
 
 import java.io.IOException;
 
@@ -41,12 +41,12 @@ public WeatherEntity getWeather(String cityCode) {
 			JsonNode node = mapper.readTree(json);
 			
 			//forecastをForEachで配列分繰り返す（配列分取得する）
-			for(JsonNode forcast : node.get("forcasts")) {
+			for(JsonNode forecast : node.get("forecasts")) {
 				//データクラスの生成（result１件分）
 				WeatherData weatherData = new WeatherData();
 				
-				weatherData.setDateLabel(forcast.get("cityName").asText());
-				weatherData.setTelop(forcast.get("cityName").asText());
+				weatherData.setDateLabel(forecast.get("dateLabel").asText());
+				weatherData.setTelop(forecast.get("telop").asText());
 				
 				//可変長配列の末尾に追加
 				weatherEntity.getForecasts().add(weatherData);

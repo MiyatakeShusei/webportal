@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WebPortal.com</title>
+</head>
+<body>
+	<h2>タスク管理</h2>
+	<hr>
+	<form method="post" th:action="@{/task/insert}">
+		<div class="input-group">
+			<input type="text" class="form-control" name="comment"
+				placeholder="タスク内容"> <input type="date" class="form-control"
+				name="limitday"> <span class="input-group-btn">
+				<button type="submit" class="btn btn-warning">追加</button>
+			</span>
+		</div>
+	</form>
+	<hr>
+	<ul th:each="task: ${taskEntity.taskList}">
+		<li><a th:href="@{'/task/delete/' + ${task.id}"> <span
+				th:text="${taskEntity.taskList}"></span>
+		</a> <span th:text="${taskEntity.taskList}"></span></li>
+	</ul>
+	<hr>
+	<form method="post" th:action="@{/task/csv}">
+		<button type="submit" class="btn btn-info">CSV出力</button>
+	</form>
+</body>
+</html>
